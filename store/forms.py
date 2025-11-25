@@ -1,7 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
-
 from .models import Item
 
 class LoginForm(AuthenticationForm):
@@ -14,7 +13,7 @@ class LoginForm(AuthenticationForm):
 
     password = forms.CharField(widget=forms.PasswordInput(
         attrs={
-            'placeholder': 'password',
+            'placeholder': 'Password',
             'class': 'form-control'
         }
     ))
@@ -51,3 +50,27 @@ class SignupForm(UserCreationForm):
             'class': 'form-control'
         }
     ))
+
+class NewItemForm(forms.ModelForm):
+    class Meta:
+        model = Item
+        fields = ('category', 'name', 'description', 'price', 'image',)
+
+        widgets = {
+            'category': forms.Select(attrs={
+                'class': 'form-select'
+            }),
+            'name': forms.TextInput(attrs={
+                'class': 'form-control'
+            }),
+            'description': forms.Textarea(attrs={
+                'class': 'form-control',
+                'style': 'height: 100px'
+            }),
+            'price': forms.TextInput(attrs={
+                'class': 'form-control',
+            }),
+            'image': forms.FileInput(attrs={
+                'class': 'form-control',
+            }),
+        }

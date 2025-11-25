@@ -1,25 +1,44 @@
 {% extends 'store/base.html' %}
 
-{% block title %}Home | {% endblock %} 
+{% block title %} Home | {% endblock %}
 
-{% block content %} 
- <div class=".mt-2.mb-4.px-4.py-2">
-    <h1 class="text-center mb-4">Nuevos productos</h1>
-    <div class="container text-center">
-        <div class="row justify-content-center">
-            {% for item in items %}
-            <div class=".col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-3">
-             <div class="card" style="width: 18rem">
-                <img src="{{ item.image.url }}" alt="{{item.name}}" class="card-img-top">
-                <div class="card body">
-                    <h5 class="card title"> {{item.name}} - {{item.price}}</h5>
-                    <p class="card-text">{{item.description}}</p>
-                    <a href="{% url 'detail' item.pk %}" class="btn btn-primary">Mas detalles...</a>
+{% block content %}
+<div class="container my-5">
+    <h1 class="text-center mb-5 display-4 fw-bold text-primary">Nuestros Productos</h1>
+    
+    <div class="row g-2 justify-content-center"> <!-- Reduje gutter de 4 a 2 -->
+        {% for item in items %}
+        <div class="col-md-4 col-sm-6 d-flex justify-content-center mb-3"> <!-- margen inferior opcional -->
+            <div class="card h-100 shadow-lg border-0 rounded-4 product-card" style="width: 280px;">
+                {% if item.image %}
+                <img src="{{ item.image.url }}" class="card-img-top rounded-top-4" style="height: 180px; object-fit: cover;" alt="{{ item.name }}">
+                {% else %}
+                <img src="https://via.placeholder.com/280x180?text=Sin+Imagen" class="card-img-top rounded-top-4" style="height: 180px; object-fit: cover;" alt="{{ item.name }}">
+                {% endif %}
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title fw-bold">{{ item.name }}</h5>
+                    <p class="card-text text-success h5 mb-3">{{ item.price }} MXN</p>
+                    <a href="{% url 'detail' item.pk %}" class="btn btn-primary btn-lg mt-auto rounded-3 shadow-sm">Ver Detalle</a>
                 </div>
-              </div>
-           </div>
-            {% endfor %} 
+            </div>
         </div>
+        {% endfor %}
     </div>
 </div>
+
+<!-- CSS extra para hover -->
+<style>
+.product-card {
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+.card-title {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+</style>
 {% endblock %}
