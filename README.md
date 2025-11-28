@@ -72,7 +72,7 @@ Además, la experiencia de trabajar en equipo fue clave para implementar estas m
 
 # **Diagrama**
 
-![Diagrama de flujo](img/diagrama.png)
+![](img/diagrama.png)
 
 ---
 
@@ -184,11 +184,11 @@ Dentro de este archivo se pueden cambiar muchas cosas, por ejemplo:
 **Los archivos estáticos:** como las imágenes, los estilos (CSS) o los scripts (JavaScript). 
 **Temas de seguridad:** como la clave secreta (SECRET_KEY) o los dominios que pueden acceder al proyecto.
 
-![Codigo Pt1](img/imagen1.png)
-![Codigo Pt2](img/imagen2.png)
-![Codigo Pt3](img/imagen3.png)
-![Codigo Pt4](img/imagen4.png)
-![Codigo Pt5](img/imagen5.png)
+![](img/imagen1.png)
+![](img/imagen2.png)
+![](img/imagen3.png)
+![](img/imagen4.png)
+![](img/imagen5.png)
 
 – Actualización 
 
