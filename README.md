@@ -689,8 +689,8 @@ En este proyecto la función de nuestro archivo llamado “form.html” es el po
     </form>
 {% endblock%}
 ```
-
-Settings.py
+---
+##**Settings.py**
 El archivo settings.py sirve para guardar toda la configuración principal de un proyecto hecho con Django. Básicamente, es el archivo donde se definen las reglas que el proyecto necesita para funcionar bien. 
 Dentro de este archivo se pueden cambiar muchas cosas, por ejemplo:
 La base de datos: que es donde se guarda la información del proyecto. Ahí se indica si se va a usar SQLite, MySQL u otra. 
