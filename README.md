@@ -75,8 +75,9 @@ Además, la experiencia de trabajar en equipo fue clave para implementar estas m
 ---
 
 # **Diagrama**
+<img width="348" height="348" alt="pou" src="https://github.com/user-attachments/assets/a22f90ab-f2b1-41d6-b52d-53292781c00a" />
 
-![](janne-personal/imágenes/pou.png)
+
 
 ---
 
