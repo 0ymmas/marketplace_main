@@ -76,7 +76,7 @@ Además, la experiencia de trabajar en equipo fue clave para implementar estas m
 
 # **Diagrama**
 
-![](CWA/diagrama.jpg)
+![](img/pou.png)
 
 ---
 
