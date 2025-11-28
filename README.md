@@ -1,11 +1,15 @@
 # **Práctica Evaluatoria – Parcial 3**
 
 **Centro de Bachillerato Tecnológico Industrial y de Servicios No. 116**
+--
 **Materia:** Construye Aplicaciones Web
+--
 **Profesor:** José Christian Romero Hernández
+--
 **Grupo:** 5 AMPG
+--
 **Fecha:** 28 de noviembre de 2025
-
+--
 **Integrantes:**
 
 * Gutiérrez Morales Mayte
