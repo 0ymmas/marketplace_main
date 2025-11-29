@@ -92,6 +92,9 @@ Por otra parte el formulario de registro (Signup Form), hago algo parecido, usó
 
 <img width="387" height="367" alt="image" src="https://github.com/user-attachments/assets/ed49cd8e-a3e8-422d-8505-21fef0d0df99" />
 
+<img width="346" height="774" alt="image" src="https://github.com/user-attachments/assets/a1ae3e1f-bd02-4ea9-bd3b-2ffd1aa75d89" />
+
+<img width="344" height="562" alt="image" src="https://github.com/user-attachments/assets/d4009b13-b051-49de-b1fa-1f3487e0a5a6" />
 
 ### **Código:**
 
