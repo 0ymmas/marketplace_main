@@ -196,17 +196,24 @@ Dentro de este archivo se pueden cambiar muchas cosas, por ejemplo:
 **Los archivos estáticos:** como las imágenes, los estilos (CSS) o los scripts (JavaScript). 
 **Temas de seguridad:** como la clave secreta (SECRET_KEY) o los dominios que pueden acceder al proyecto.
 
-![](img/imagen1.png)
-![](img/imagen2.png)
-![](img/imagen3.png)
-![](img/imagen4.png)
-![](img/imagen5.png)
+<img width="475" height="332" alt="image" src="https://github.com/user-attachments/assets/0517fcba-4028-47e7-ba62-ec5d02f1ccc9" />
+<br>
+<img width="489" height="373" alt="image" src="https://github.com/user-attachments/assets/4200df05-8fbe-4075-8331-00b05fda71fa" />
+<br>
+<img width="455" height="385" alt="image" src="https://github.com/user-attachments/assets/9fc3f797-e81d-4ac7-8409-d56db28f349a" />
+<br>
+<img width="539" height="171" alt="image" src="https://github.com/user-attachments/assets/dcac8342-ba27-4725-aecd-bcd81ada80e9" />
+<br>
+<img width="537" height="321" alt="image" src="https://github.com/user-attachments/assets/b1352fac-dfd9-44fb-8a03-fe5cca87a99b" />
 
 – Actualización 
 
 El archivo settings.py sirve para guardar toda la configuración principal de un proyecto hecho con Django. Básicamente es el archivo donde se definen las reglas que el proyecto necesita para funcionar bien.
 
 La primera actualización del código fue esta: Sirve para que Django sepa donde guardar la información de la base de datos. 
+<img width="539" height="63" alt="image" src="https://github.com/user-attachments/assets/321cba15-640e-4cf8-8f11-6073b76250d2" />
+<br>
+<img width="541" height="63" alt="image" src="https://github.com/user-attachments/assets/44369098-9704-4f52-88ff-d39a5dcfa096" />
 
 ```
 DATABASES = {
@@ -217,6 +224,8 @@ DATABASES = {
 }
 ```
 En la actualización se agregó la parte de templates:Sirve para que podamos buscar y usar archivos HTML desde las aplicaciones o desde carpetas personalizadas.
+<img width="538" height="289" alt="image" src="https://github.com/user-attachments/assets/a7c55a9c-c1aa-408c-be76-3c51e9d50fc8" />
+
 ```
 TEMPLATES = [
     {
