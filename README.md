@@ -500,6 +500,11 @@ Usa tu plantilla base (base.html) para mantener el estilo. Muestra la imagen del
 Básicamente, es la página de detalle del producto, justo como en cualquier tienda online.
 
 **Código:**
+<img width="483" height="120" alt="image" src="https://github.com/user-attachments/assets/b16c715a-488f-4c01-965b-9b08a9602231" />
+<br>
+<img width="290" height="629" alt="image" src="https://github.com/user-attachments/assets/aa3cd3fe-bf2c-4906-9e41-3a8fc0e5496f" />
+
+
 ```
 {% extends 'store/base.html' %}
 {% block title %} {{ item.name }} | {% endblock %}
@@ -543,6 +548,9 @@ La plantilla también es responsable de garantizar que el diseño y la experienc
 Finalmente, el archivo login.html es importante para la redirección dentro de la aplicación. Una vez que el usuario se autentica correctamente, es redirigido a la página que había intentado acceder originalmente, como lo es la  página principal.
 
 **Código:**
+<img width="310" height="207" alt="image" src="https://github.com/user-attachments/assets/acc22a22-ce65-4a9d-905c-6f007dba0d1e" />
+<br>
+<img width="307" height="448" alt="image" src="https://github.com/user-attachments/assets/1f837b62-d8ed-4acc-abbe-ba8a97587762" />
 
 ```
 % extends 'store/base.html' %}
@@ -583,6 +591,9 @@ En nuestro proyecto, el archivo signup.html tiene la función de interactuar con
 El uso del {% csrf_token %} dentro del formulario es una medida de seguridad que protege al sitio contra ataques de tipo CSRF, asegurando que los datos solo sean enviados desde el mismo sitio web. Además, se manejan los errores de validación, de modo que si los usuarios cometen algún error, como escribir contraseñas que no coinciden, el sistema les proporciona retroalimentación para corregirlo.
 
 **Formulario de Registro:**
+<img width="309" height="263" alt="image" src="https://github.com/user-attachments/assets/13f9a2ed-4bdc-4e9e-904c-b2aa28b2dbcb" />
+<br>
+<img width="307" height="283" alt="image" src="https://github.com/user-attachments/assets/d567e604-a51a-4500-b4ad-f4d312d68e01" />
 
 ```
 <form action="." method="POST">
@@ -618,6 +629,10 @@ El uso del {% csrf_token %} dentro del formulario es una medida de seguridad que
 ```
 
 **Código:**
+<img width="311" height="365" alt="image" src="https://github.com/user-attachments/assets/3c90cff3-6f88-4377-8f06-1e6b2a823467" />
+<br>
+<img width="308" height="448" alt="image" src="https://github.com/user-attachments/assets/7d427742-789b-4947-822a-8b610003895a" />
+
 ```
 {% extends 'store/base.html' %}
 {% block title %}Registro| {% endblock %}
@@ -670,6 +685,9 @@ El archivo navigation.html en un repositorio de GitHub es un archivo HTML que co
 En nuestro proyecto el documento de navigation.html tiene la función de crear una barra de navegación en HTML usando bootstrap como guía y base; Al usar bootstrap para esta parte también nos ayuda a que al momento de usar nuestra página completa en diferentes dispositivos (computadora/teléfono/tablet/etc) esta barra se adapte al tamaño del dispositivo en cuestión, además de que en dispositivos pequeños se pueda expandir o minimizar según sea el caso.  
 
 Además cuenta con un botón que te redirige a la pantalla home directamente, un apartado de contacto que te lleva directamente a la página de contacto. Si el usuario está registrado se muestra el apartado de “add item” para agregar un articulo nuevo, si está registrado y quiere salir también se muestra el botón “logout” para salir de esa sesión, en caso contrario, si no ha iniciado sesión seleccionando el botón de “login” o “register”. 
+<img width="464" height="310" alt="image" src="https://github.com/user-attachments/assets/1bf89ae6-ac26-4aec-81a0-e2e39ea9eaaf" />
+<br>
+<img width="470" height="608" alt="image" src="https://github.com/user-attachments/assets/67d115b5-5604-45eb-adfa-2b1c78642a40" />
 
 ```
 <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
@@ -723,6 +741,11 @@ Además cuenta con un botón que te redirige a la pantalla home directamente, un
 El archivo form.html en un repositorio de GitHub es un archivo que contiene código HTML para crear un formulario en una página web. GitHub es una plataforma para alojar código de programación y este archivo puede ser parte de un proyecto que muestra un formulario de contacto, registro, o cualquier otro tipo de formulario, y puede estar destinado a usarse con servicios externos para procesar los envíos, ya que GitHub no puede procesar datos de formularios por sí mismo.
 En este proyecto la función de nuestro archivo llamado “form.html” es el poder tener un formulario de registro (register), esta página se encarga de mostrar un formulario HTML para el registro de usuarios con validación y manejo de errores, extendiendo la plantilla del documento base.html donde esta nuestra estructura base de la página en general. 
 
+<img width="465" height="365" alt="image" src="https://github.com/user-attachments/assets/c11f274e-3b48-4380-8580-e19b3b6d46ef" />
+<br>
+<img width="640" height="42" alt="image" src="https://github.com/user-attachments/assets/2797d720-dfc2-47c6-a1a9-5ace5ea20e4c" />
+
+
 ```
 {% extends 'store/base.html' %}
 {% block title %} {{ title }} {% endblock %}
@@ -760,11 +783,15 @@ El idioma y la zona horaria: para adaptar el proyecto al país o idioma que quer
 Los archivos estáticos: como las imágenes, los estilos (CSS) o los scripts (JavaScript). 
 Temas de seguridad: como la clave secreta (SECRET_KEY) o los dominios que pueden acceder al proyecto.
 
+
 – Actualización 
 
 El archivo settings.py sirve para guardar toda la configuración principal de un proyecto hecho con Django. Básicamente es el archivo donde se definen las reglas que el proyecto necesita para funcionar bien.
 
 La primera actualización del código fue esta: Sirve para que Django sepa donde guardar la información de la base de datos. 
+
+<img width="662" height="151" alt="image" src="https://github.com/user-attachments/assets/71cd1649-4ea3-465e-870f-61ae31da8ee0" />
+
 
 ```
 DATABASES = {
@@ -776,6 +803,9 @@ DATABASES = {
 ```
 
 En la actualización se agregó la parte de templates:Sirve para que podamos buscar y usar archivos HTML desde las aplicaciones o desde carpetas personalizadas.
+
+<img width="662" height="356" alt="image" src="https://github.com/user-attachments/assets/809766b6-0c1b-4b46-a105-89a2c74c8817" />
+
 ```
 TEMPLATES = [
     {
@@ -794,11 +824,14 @@ TEMPLATES = [
 ```
 
 En la actualización se agregó este código: Sirve para conectar a Django con servidores web 
+<img width="662" height="25" alt="image" src="https://github.com/user-attachments/assets/3db3b9d7-6868-4fa2-9aa7-e3c123b4c8ee" />
+
 ```
 WSGI_APPLICATION = 'marketplace_main.wsgi.application'
 ```
 
 En la actualización se agregó este código: Sirve para controlar a donde se manda al usuario al estar registrado, o cuando inicia o cierra sesión
+<img width="660" height="94" alt="image" src="https://github.com/user-attachments/assets/5dc514bb-a57c-4eff-8339-4746271b5ba3" />
 
 ```
 ALLOWED_HOSTS = []
@@ -810,41 +843,55 @@ LOGOUT_REDIRECT_URL = '/'
 
 # **Ejecución del Proyecto**
 
-![](img/imagen10.png)
+<img width="755" height="411" alt="image" src="https://github.com/user-attachments/assets/8475684b-3e84-4f1c-bc46-382caa0622f1" />
+
 Al correr el servidor con el codigo python manage.py runserver, nos proporcionó un link que al copiar y pegarlo en el buscador de Google y agregarle al link “/admin/”, nos llevó a un apartado de inicio de sesión de Django.
 
-![](img/imagen10.png)
+<img width="748" height="283" alt="image" src="https://github.com/user-attachments/assets/755329cf-7a9a-43f7-a4b2-ae4ad1408964" />
+
 Después de iniciar sesión nos llevó a otro apartado donde nos mostró toda nuestra actividad de Store: “Categories” e “Items” (Archivos codificados en Visual Studio Code).
 
-![](img/imagen10.png)
+<img width="753" height="388" alt="image" src="https://github.com/user-attachments/assets/7b0c60e7-af5f-4c19-bc5d-d0005aa57c77" />
+
 Agregamos tres categorías: “ropa”, “videojuegos” y “zapatos” en la sección de Categories, luego en la sección de Items agregamos desde Actions estas categorías. A cada categoría le completamos la información que nos solicitaba.
 
-![](img/imagen10.png)
-![](img/imagen10.png)
-![](img/imagen10.png)
+<img width="753" height="368" alt="image" src="https://github.com/user-attachments/assets/94784fb5-941f-4d32-9d2f-0109f7e70aa7" />
+<br>
+<img width="753" height="385" alt="image" src="https://github.com/user-attachments/assets/4455ebac-27e9-4e01-9e14-b2d88d046d89" />
+<br>
+<img width="754" height="364" alt="image" src="https://github.com/user-attachments/assets/425af0e1-0849-4e37-be0c-562e35e40174" />
 
-![](img/imagen10.png)
+
+<img width="748" height="341" alt="image" src="https://github.com/user-attachments/assets/5fc66a56-6f89-439a-aa43-652335a0b765" />
+
 Corrimos de nuevo el servidor, y copiamos el link, lo pegamos pero esta vez sin agregar el “/admin/”, al ponerlo nos llevó a un apartado donde se muestra nuestros productos que habíamos puesto en Categories e Items.
 
-![](img/imagen10.png)
+<img width="755" height="363" alt="image" src="https://github.com/user-attachments/assets/7884b22f-b41c-4b95-882d-2fd557f80c8a" />
+
 En Visual Studio Code agregamos el archivo de Contact y lo codificamos, al guardarlo y correr el servidor, CMD nos brindo un link que al pegarlo y agregar a lado del link “/store/contact/” o dando click a la sección “Contact” en la barra negra, nos llevó a un apartado donde el usuario puede poner sus datos y un mensaje.
 
-![](img/imagen10.png)
+<img width="750" height="327" alt="image" src="https://github.com/user-attachments/assets/64c00b3d-99f9-47b4-a31a-44170a5dbd88" />
+
 Por último, agregamos otro archivo “detail” en Visual Studio Code, donde al correr de nuevo el servidor y agregar a lado del link “/store/detail/2/”, nos llevó al apartado de los créditos.
 
-![](img/imagen10.png)
+<img width="751" height="392" alt="image" src="https://github.com/user-attachments/assets/9a509505-44b3-4239-9fc4-19b3a1c1a641" />
+
 En la página principal lo que se agregó fue el botón de ver detalles,la posición en como estaba adjunta, junto a la paleta de colores que se usaron, para las cosas
 
-![](img/imagen10.png)
+<img width="753" height="369" alt="image" src="https://github.com/user-attachments/assets/2b0946b2-d62f-40e1-944f-1fdb2b44aee8" />
+
 Se agregó, donde el usuario podrá meter registro dentro de la página y se guardará.
 
-![](img/imagen10.png)
+<img width="723" height="329" alt="image" src="https://github.com/user-attachments/assets/395cc667-bce6-40b8-a73a-6e3c2edeb80e" />
+
 Aquí se actualizó, donde aparte de poder meter algún tipo de registro,podría agregar una contraseña para que los datos se mantuvieran más seguros.
 
-![](img/imagen10.png)
+<img width="684" height="337" alt="image" src="https://github.com/user-attachments/assets/8f4d8367-7d5f-4fb6-9884-0b6cf248223c" />
+
 En la página, se hizo este espacio, donde el usuario podrá ingresar, sus datos, para poder contactar o hablar directamente, sobre los productos en venta, de igual forma, si hay algo que sugerir.
 
-![](img/imagen10.png)
+<img width="750" height="218" alt="image" src="https://github.com/user-attachments/assets/82837c5c-e673-4559-8ded-8bfb9418518c" />
+
 Por ultimo, al momento de presionar, ver detalles, automáticamente, te mandara, donde puedan ver con más claridad las cosas que contiene el producto.
 
 ---
