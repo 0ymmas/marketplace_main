@@ -244,11 +244,15 @@ TEMPLATES = [
 ```
 
 En la actualización se agregó este código: Sirve para conectar a Django con servidores web 
+<img width="542" height="21" alt="image" src="https://github.com/user-attachments/assets/b1b2db1d-267d-4874-ab45-7ac60c7d2bb4" />
+
 ```
 WSGI_APPLICATION = 'marketplace_main.wsgi.application'
 ```
 
 En la actualización se agregó este código: Sirve para controlar a donde se manda al usuario al estar registrado, o cuando inicia o cierra sesión
+<img width="540" height="73" alt="image" src="https://github.com/user-attachments/assets/965a7fea-7846-455f-a04b-b9e75a35846c" />
+
 ```
 ALLOWED_HOSTS = []
 LOGIN_URL = '/store/login/'
@@ -264,8 +268,10 @@ La actualización del archivo urls.py añadió varias rutas nuevas que mejoran b
 La ruta de registro permite que cualquier persona cree su cuenta, y la de inicio de sesión sirve para que los usuarios entren a la suya sin problema. También se agregó la opción de cerrar sesión, que es importante para mantener la seguridad de cada cuenta. Además, la posibilidad de agregar productos es clave para que los usuarios puedan publicar lo que quieran vender dentro del marketplace.
 En conjunto, estas mejoras son necesarias para que la plataforma funcione realmente como un marketplace seguro y fácil de usar. Contar con la gestión de usuarios y productos ayuda a que cada persona pueda manejar su información, comprar, vender y controlar todo desde su cuenta. Gracias a estas rutas, la navegación del sitio queda más organizada y completa, cubriendo todo lo que un usuario necesita para interactuar con la página.
 
-![](img/imagen6.png)
-![](img/imagen7.png) 
+<img width="541" height="183" alt="image" src="https://github.com/user-attachments/assets/37b70de6-4953-4d9a-b377-be00893cc0f3" />
+<br>
+<img width="514" height="163" alt="image" src="https://github.com/user-attachments/assets/c5aae77d-c2e5-438e-8524-d819238633b3" />
+
 
 — Actualización
 
@@ -278,6 +284,10 @@ Con las recientes modificaciones en urls.py, se añadieron varias rutas nuevas q
 - La ruta contact/ muestra la página de contacto para consultas o sugerencias.
 
 Gracias a estas actualizaciones, el archivo urls.py permite que la aplicación funcione de manera más completa, organizada y segura. Contar con rutas claras para la gestión de usuarios y productos facilita la navegación, mejora la experiencia del usuario y asegura que cada acción se procese correctamente según el tipo de solicitud. En conjunto, estas mejoras son clave para que el marketplace funcione como un sitio dinámico y confiable.
+<img width="664" height="20" alt="image" src="https://github.com/user-attachments/assets/45470cf2-c675-4c7a-b9e7-a80c4dace17f" />
+<br>
+<img width="600" height="264" alt="image" src="https://github.com/user-attachments/assets/9c98b8b9-fbf2-48bc-b9b0-4feddeebddb6" />
+
 ```
 from django.urls import path
 from django.contrib.auth import views as auth_views
@@ -305,13 +315,18 @@ En el código que tenemos existen dos modelos: "Category" e "Item". El modelo Ca
 
 También uso algo llamado "llave foránea" que básicamente conecta una tabla con otra. En este caso, el campo Category dentro del modelo Item conecta cada artículo con su categoría, y en el campo "create_by" hace que se nos permita seleccionar al usuario o la persona que creo o agrego el artículo.Otra cosa que me gusta de este archivo es que no tengo que crear las tablas manualmente y que es más fácil y rápido hacer todo eso porque Django se encarga de eso con los comandos como lo son "makemigrations" y "migrate" Y ya solo definimos las clases y los campos en models.py, y las convierte en tablas reales dentro de la base de datos.
 
-![](img/imagen8.png)
-![](img/imagen9.png)
+<img width="598" height="200" alt="image" src="https://github.com/user-attachments/assets/bf6e7c81-e3f1-402f-b350-9a52a007dcf4" />
+<br>
+<img width="599" height="182" alt="image" src="https://github.com/user-attachments/assets/5c8e823a-05b6-412b-b267-dde4d063945f" />
 
 —Actualización
 
 En nuestro proyecto tenemos dos modelos principales: Category e Item. El modelo Category guarda el nombre de cada categoría y Django organiza automáticamente estas categorías alfabéticamente gracias a la configuración interna del modelo. Por su parte, el modelo Item representa los artículos o productos, incluyendo datos como el nombre, una descripción opcional, el precio, la posibilidad de subir una imagen, si ya fue vendido y la fecha de creación, que Django registra automáticamente, además, Item utiliza llaves foráneas para relacionarse con otros modelos: la primera, category, conecta cada artículo con su categoría; la segunda, created_by, relaciona cada artículo con el usuario que lo creó.
 Lo mejor de trabajar con Django es que solo necesitamos definir estas clases y sus campos, y luego el framework se encarga de crear las tablas reales en la base de datos usando los comandos makemigrations y migrate, lo que simplifica enormemente la gestión de la información sin necesidad de escribir SQL manualmente.
+<img width="598" height="274" alt="image" src="https://github.com/user-attachments/assets/86e21cbb-e4bf-4e83-9770-1a135aa3ebd8" />
+<br>
+<img width="598" height="636" alt="image" src="https://github.com/user-attachments/assets/b9fb5182-48ae-4b2e-bfba-8407b4a1d82a" />
+
 ```
 from django.contrib.auth.models import User
 from django.db import models
@@ -351,40 +366,47 @@ acceder a los datos, y utiliza las plantillas para estructurar la presentación 
 aplicaciones web dinámicas y responsive, facilitando el mantenimiento del código y la escalabilidad del proyecto.Lo que hace es juntar en un solo lugar todo lo que
 se necesita de la aplicación para entender lo que el usuario está pidiendo y armarle una respuesta que tenga sentido y vaya concorde al tema.
 
-![](img/imagen10.png)
-![](img/imagen10.png)
+<img width="560" height="199" alt="image" src="https://github.com/user-attachments/assets/47b841f3-4c28-490f-a691-512b3352901c" />
+<br>
+<img width="571" height="223" alt="image" src="https://github.com/user-attachments/assets/aa8e832f-8356-4172-8df1-7417e9a7c497" />
 
 — Actualización  
 
 En nuestro caso nos funcionó para cosas necesarias como las siguientes:
 
-![](img/imagen10.png)
+<img width="478" height="181" alt="image" src="https://github.com/user-attachments/assets/6c728c73-ef62-464f-9e1f-69d7e6d947f5" />
+
 
 Ese código es la vista home() de Django y sirve para cargar la página principal de la tienda: obtiene de la base de datos todos los productos que no están vendidos y todas las categorías, mete esa información en un contexto y luego la envía al template home.html para mostrarla al usuario.
 
-![](img/imagen10.png)
+<img width="456" height="105" alt="image" src="https://github.com/user-attachments/assets/58a6b4eb-77e6-459f-bc2f-ba81fb62a6f2" />
+
 
 Ese código define la vista contact(), y su función es simplemente mostrar la página de contacto.
 Crea un contexto con un mensaje ('Quieres otros productos contactame!') y lo envía al template contact.html, para que ese texto se muestre allí cuando el usuario abra la página.
 
-![](img/imagen10.png)
+<img width="669" height="140" alt="image" src="https://github.com/user-attachments/assets/7f490e73-ccc7-4085-8408-fc5f6394f6d3" />
+
 
 Esa vista detail() sirve para mostrar la página de detalle de un producto.
 Primero busca el producto con el pk dado (o muestra 404 si no existe). Luego obtiene hasta 3 productos relacionados que sean de la misma categoría y que no estén vendidos, excluyendo el actual. Finalmente envía al template item.html tanto el producto como sus relacionados para mostrarlos en la página.
 
-![](img/imagen10.png)
+<img width="462" height="267" alt="image" src="https://github.com/user-attachments/assets/83cf8e40-3ab4-45f6-b1d7-e286b27dae3c" />
+
 
 Esa vista register() maneja el registro de nuevos usuarios.
 Si el usuario envía el formulario (método POST), crea un SignupForm con los datos, lo valida y, si es correcto, guarda al nuevo usuario y redirige a la página de login.
 Si es una visita normal (GET), simplemente muestra un formulario vacío.
 Al final, siempre envía el formulario al template signup.html para mostrarlo en la página.
 
-![](img/imagen10.png)
+<img width="279" height="70" alt="image" src="https://github.com/user-attachments/assets/2eaa01e8-12a8-4783-a842-836a4129f936" />
+
 
 Esa vista logout_user() cierra la sesión del usuario.
 Llama a logout(request) para desconectarlo y luego lo redirige a la página principal (home).
 
-![](img/imagen10.png)
+<img width="519" height="382" alt="image" src="https://github.com/user-attachments/assets/0054ffa7-ffd4-434f-8504-77abfe4771fb" />
+
 
 Esa vista add_item(), protegida con @login_required, permite que solo usuarios logueados puedan agregar productos.
 Si el usuario envía el formulario (POST), crea un NewItemForm, valida los datos, asigna el producto al usuario que lo creó (created_by), lo guarda y luego redirige a la página de detalle del nuevo item.
@@ -408,17 +430,27 @@ Este decorador se aplica sobre la vista **add_item** para asegurarse de que solo
 
 -**La Vista add_item**
 La función **add_item** es la vista encargada de manejar el proceso de agregar un nuevo artículo al sistema. Esta vista recibe un objeto **request**, que contiene la información de la solicitud HTTP realizada por el usuario.
+<img width="425" height="47" alt="image" src="https://github.com/user-attachments/assets/febba2c9-9e43-4524-9865-2e339eb5c9b5" />
+
 ```
 @login_required
 def add_item(request):
 ```
 -**Procesamiento del Formulario (Método POST)**
 Si la solicitud es POST, se crea una instancia del formulario NewItemForm usando los datos enviados en la solicitud (request.POST y request.FILES):
+<img width="423" height="24" alt="image" src="https://github.com/user-attachments/assets/b3e8142d-3dcb-4d60-8c32-2e4b3a580f0e" />
+<br>
+<img width="423" height="46" alt="image" src="https://github.com/user-attachments/assets/4705a25d-4dbb-49be-be5d-e37f306c59b6" />
+
 ```
 if request.method == 'POST':
         form = NewItemForm(request.POST, request.FILES)
 ```
 Después, se valida el formulario con form.is_valid(). Si el formulario es válido, significa que los datos proporcionados cumplen con los requisitos del formulario.
+<img width="222" height="25" alt="image" src="https://github.com/user-attachments/assets/64dcb18c-213c-4990-9032-aaf1f85f0be6" />
+<br>
+<img width="480" height="82" alt="image" src="https://github.com/user-attachments/assets/36b4d4ce-8a30-4843-a461-2a895fc5ba6b" />
+
    ```
  if form.is_valid():
             item = form.save(commit=False)
@@ -427,15 +459,21 @@ Después, se valida el formulario con form.is_valid(). Si el formulario es váli
 ```
 
 El artículo se guarda en la base de datos, y se asocia al usuario que está autenticado (es decir, el que ha iniciado sesión). Esto se hace con:
+<img width="471" height="26" alt="image" src="https://github.com/user-attachments/assets/91ad01cd-7648-4a7a-a34a-d79d4f4225e0" />
+
 ```
 item.created_by = request.user
 ```
 Una vez guardado el artículo, el usuario es redirigido a la página de detalles del artículo recién creado:
+<img width="483" height="24" alt="image" src="https://github.com/user-attachments/assets/9c5d1c17-f5cc-4a73-bd38-794c52659bfc" />
+
 ```
     return redirect('detail', pk=item.id)
 ```
 -**Mostrar el Formulario (Método GET)**
 Si la solicitud no es POST, significa que el usuario está viendo el formulario para agregar un nuevo artículo. En este caso, se crea un formulario vacío y se prepara el contexto para mostrarlo en la plantilla:
+<img width="483" height="163" alt="image" src="https://github.com/user-attachments/assets/1f305300-8e9e-4009-b6e0-1d7264ca3d15" />
+
 ```
  else:
         form = NewItemForm()
@@ -446,6 +484,7 @@ Si la solicitud no es POST, significa que el usuario está viendo el formulario 
 Finalmente, el formulario vacío se renderiza dentro de la plantilla store/form.html, y se pasa el contexto con el formulario y el título de la página:
   return render(request, 'store/form.html', context)
 ```
+<img width="480" height="55" alt="image" src="https://github.com/user-attachments/assets/94ec01fa-71c1-4266-bf85-b54fd80cd850" />
 
 ---
 
@@ -453,7 +492,8 @@ Finalmente, el formulario vacío se renderiza dentro de la plantilla store/form.
 La carpeta templates/store guarda los archivos que definen el diseño de la tienda en línea, es como el "molde" que determina cómo se ven las páginas, como la de inicio o el carrito de compras.
 Su función principal es dar un diseño uniforme y profesional, las plantillas permiten personalizar fácilmente la apariencia sin afectar la funcionalidad, además, es útil para cambiar el aspecto de toda la tienda sin complicaciones, especialmente en plataformas como shopify o woocommerce y lo mejor es que reutiliza elementos, como botones o encabezados, para que sea más fácil mantener el sitio actualizado.
 
-![](img/imagen10.png)
+<img width="327" height="200" alt="image" src="https://github.com/user-attachments/assets/b17a0bb9-d1d7-4170-ba74-22a8c9c37be0" />
+
 
 Es la página donde se muestra un producto individual de tu tienda. Cuando alguien da click en un artículo, Django carga este template y aquí se ve todo: la imagen, el precio, la descripción e inclusive otros productos parecidos 
 Usa tu plantilla base (base.html) para mantener el estilo. Muestra la imagen del producto (o una imagen por defecto si no tiene). Enseña el nombre, precio y descripción. Abajo pone una sección de “productos relacionados” que vienen de la misma categoría. Tiene un botón arriba para regresar a la lista de productos.
