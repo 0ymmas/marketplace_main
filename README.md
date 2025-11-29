@@ -90,6 +90,9 @@ En el archivo forms.py del apartado store lo que hago es definir los formularios
 
 Por otra parte el formulario de registro (Signup Form), hago algo parecido, usó el formulario estándar de Django para crear usuarios, pero ajustó los campos para que tengan el estilo que quiero y también agrego placeholders que sirve como una pequeña guía o pista para indicar qué debe escribirse ahí, además, especificó que este formulario trabaja con el modelo “User” y los campos que quiero mostrar. En otras palabras, este archivo se encarga de darle estilo y mejorar la presentación de los formularios de login y registro, manteniendo la funcionalidad original que Django ya provee, es básicamente la capa que hace que los formularios se vean bien y sean más cómodos de usar.
 
+<img width="387" height="367" alt="image" src="https://github.com/user-attachments/assets/ed49cd8e-a3e8-422d-8505-21fef0d0df99" />
+
+
 ### **Código:**
 
 ```
