@@ -76,7 +76,8 @@ Además, la experiencia de trabajar en equipo fue clave para implementar estas m
 
 # **Diagrama**
 
-![](<img width="540" height="462" alt="image" src="https://github.com/user-attachments/assets/e082e63f-6563-49ea-ba3d-d5fbdc958caf" />)
+<img width="540" height="462" alt="image" src="https://github.com/user-attachments/assets/b0becd2c-7565-4a8d-aec3-d01bcedaf8e3" />
+
 
 
 ---
