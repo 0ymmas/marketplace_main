@@ -327,11 +327,33 @@ LOGOUT_REDIRECT_URL = '/'
 La actualización del archivo urls.py añadió varias rutas nuevas que mejoran bastante cómo funciona el sitio, especialmente en todo lo que tiene que ver con usuarios y productos. Ahora existen rutas para registrarse, iniciar sesión, cerrar sesión y agregar un nuevo artículo, mientras que la ruta para ver el detalle de un producto sigue igual. Con estos cambios, el proyecto ya cuenta con un sistema más completo para manejar cuentas y publicaciones.
 La ruta de registro permite que cualquier persona cree su cuenta, y la de inicio de sesión sirve para que los usuarios entren a la suya sin problema. También se agregó la opción de cerrar sesión, que es importante para mantener la seguridad de cada cuenta. Además, la posibilidad de agregar productos es clave para que los usuarios puedan publicar lo que quieran vender dentro del marketplace.
 En conjunto, estas mejoras son necesarias para que la plataforma funcione realmente como un marketplace seguro y fácil de usar. Contar con la gestión de usuarios y productos ayuda a que cada persona pueda manejar su información, comprar, vender y controlar todo desde su cuenta. Gracias a estas rutas, la navegación del sitio queda más organizada y completa, cubriendo todo lo que un usuario necesita para interactuar con la página.
+```python
+# URL configuration for marketplace_main project.
+# The `urlpatterns` list routes URLs to views. For more information please see:
+# https://docs.djangoproject.com/en/5.2/topics/http/urls/
 
-<img width="541" height="183" alt="image" src="https://github.com/user-attachments/assets/37b70de6-4953-4d9a-b377-be00893cc0f3" />
-<br>
-<img width="514" height="163" alt="image" src="https://github.com/user-attachments/assets/c5aae77d-c2e5-438e-8524-d819238633b3" />
+# Examples:
+# Function views
+# 1. Add an import: from my_app import views
+# 2. Add a URL to urlpatterns: path('', views.home, name='home')
+# Class-based views
+# 1. Add an import: from other_app.views import Home
+# 2. Add a URL to urlpatterns: path('', Home.as_view(), name='home')
+# Including another URLconf
+# 1. Import the include() function: from django.urls import include, path
+# 2. Add a URL to urlpatterns: path('blog/', include('blog.urls'))
 
+from django.contrib import admin
+from django.urls import path, Include
+from django.conf import settings
+from django.conf.urls.static import static
+from store.views import home
+
+urlpatterns = [
+    path('', home, name='home'),
+    path('admin/', admin.site.urls),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+```
 
 — Actualización
 
@@ -344,15 +366,12 @@ Con las recientes modificaciones en urls.py, se añadieron varias rutas nuevas q
 - La ruta contact/ muestra la página de contacto para consultas o sugerencias.
 
 Gracias a estas actualizaciones, el archivo urls.py permite que la aplicación funcione de manera más completa, organizada y segura. Contar con rutas claras para la gestión de usuarios y productos facilita la navegación, mejora la experiencia del usuario y asegura que cada acción se procese correctamente según el tipo de solicitud. En conjunto, estas mejoras son clave para que el marketplace funcione como un sitio dinámico y confiable.
-<img width="664" height="20" alt="image" src="https://github.com/user-attachments/assets/45470cf2-c675-4c7a-b9e7-a80c4dace17f" />
-<br>
-<img width="600" height="264" alt="image" src="https://github.com/user-attachments/assets/9c98b8b9-fbf2-48bc-b9b0-4feddeebddb6" />
-
-```
+```python
 from django.urls import path
 from django.contrib.auth import views as auth_views
 from .views import contact, detail, register, logout_user, add_item
 from .forms import LoginForm
+
 
 urlpatterns = [
     path('contact/', contact, name='contact'),
@@ -367,6 +386,7 @@ urlpatterns = [
 ]
 ```
 
+---
 ## **Models.py**
 
 En lo que hemos estado trabajando usando Django, el archivo models.py es el que se encarga de definir cómo se va a guardar toda la información que estamos usando. No se guardan los datos directamente ahí como tal pero sí se explica qué tipo de datos van a estar y cómo se van a organizar. Básicamente, cada clase que se crea ahí dentro es como una tabla en la base de datos, y cada. El atributo dentro de esa clase es una columna que guarda un tipo de información.
@@ -374,29 +394,49 @@ En lo que hemos estado trabajando usando Django, el archivo models.py es el que 
 En el código que tenemos existen dos modelos: "Category" e "Item". El modelo Category representa las categorías que pueden tener los artículos. Solo tiene un campo llamado name, que guarda el nombre de cada categoría. Después está Item, que representa los artículos o productos que estarán dentro de las categorías. Desde el nombre del artículo, precio, descripción, etc.
 
 También uso algo llamado "llave foránea" que básicamente conecta una tabla con otra. En este caso, el campo Category dentro del modelo Item conecta cada artículo con su categoría, y en el campo "create_by" hace que se nos permita seleccionar al usuario o la persona que creo o agrego el artículo.Otra cosa que me gusta de este archivo es que no tengo que crear las tablas manualmente y que es más fácil y rápido hacer todo eso porque Django se encarga de eso con los comandos como lo son "makemigrations" y "migrate" Y ya solo definimos las clases y los campos en models.py, y las convierte en tablas reales dentro de la base de datos.
+```python
+from django.contrib.auth.models import User
+from django.db import models
 
-<img width="598" height="200" alt="image" src="https://github.com/user-attachments/assets/bf6e7c81-e3f1-402f-b350-9a52a007dcf4" />
-<br>
-<img width="599" height="182" alt="image" src="https://github.com/user-attachments/assets/5c8e823a-05b6-412b-b267-dde4d063945f" />
+# Create your models here.
+class Category(models.Model):
+    name = models.CharField(max_length=255)
 
+    class Meta:
+        ordering = ('name',)
+        verbose_name_plural = 'Categories'
+
+    def __str__(self):
+        return self.name
+
+class Item(models.Model):
+    Category = models.ForeignKey(Category, related_name='items', on_delete=models.CASCADE)
+    name = models.CharField(max_length=255)
+    description = models.TextField(blank=True, null=True)
+    price = models.FloatField(default=0.0)
+    image = models.ImageField(upload_to='item_images', blank=True, null=True)
+    is_sold = models.BooleanField(default=False)
+    create_by = models.ForeignKey(User, related_name='items', on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
+```
 —Actualización
 
 En nuestro proyecto tenemos dos modelos principales: Category e Item. El modelo Category guarda el nombre de cada categoría y Django organiza automáticamente estas categorías alfabéticamente gracias a la configuración interna del modelo. Por su parte, el modelo Item representa los artículos o productos, incluyendo datos como el nombre, una descripción opcional, el precio, la posibilidad de subir una imagen, si ya fue vendido y la fecha de creación, que Django registra automáticamente, además, Item utiliza llaves foráneas para relacionarse con otros modelos: la primera, category, conecta cada artículo con su categoría; la segunda, created_by, relaciona cada artículo con el usuario que lo creó.
 Lo mejor de trabajar con Django es que solo necesitamos definir estas clases y sus campos, y luego el framework se encarga de crear las tablas reales en la base de datos usando los comandos makemigrations y migrate, lo que simplifica enormemente la gestión de la información sin necesidad de escribir SQL manualmente.
-<img width="598" height="274" alt="image" src="https://github.com/user-attachments/assets/86e21cbb-e4bf-4e83-9770-1a135aa3ebd8" />
-<br>
-<img width="598" height="636" alt="image" src="https://github.com/user-attachments/assets/b9fb5182-48ae-4b2e-bfba-8407b4a1d82a" />
 
 ```
 from django.contrib.auth.models import User
 from django.db import models
+
 class Category(models.Model):
     name = models.CharField(max_length=255)
 
     class Meta:
         ordering = ('name', )
         verbose_name_plural = 'Categories'
-
     def __str__(self):
         return self.name
 
@@ -414,6 +454,7 @@ class Item(models.Model):
         return self.name
 ```
 
+
 ---
 
 ## **Views.py**
@@ -426,48 +467,126 @@ acceder a los datos, y utiliza las plantillas para estructurar la presentación 
 aplicaciones web dinámicas y responsive, facilitando el mantenimiento del código y la escalabilidad del proyecto.Lo que hace es juntar en un solo lugar todo lo que
 se necesita de la aplicación para entender lo que el usuario está pidiendo y armarle una respuesta que tenga sentido y vaya concorde al tema.
 
-<img width="560" height="199" alt="image" src="https://github.com/user-attachments/assets/47b841f3-4c28-490f-a691-512b3352901c" />
-<br>
-<img width="571" height="223" alt="image" src="https://github.com/user-attachments/assets/aa8e832f-8356-4172-8df1-7417e9a7c497" />
+```python
+from django.shortcuts import render
+from .models import Item, Category
+from django.shortcuts import get_object_or_404
+
+# Create your views here.
+def home(request):
+    items = Item.objects.filter(is_sold=False)
+    categories = Category.objects.all()
+    context = {
+        'items': items,
+        'categories': categories
+    }
+    return render(request, 'store/home.html', context)
+
+def contact(request):
+    context = {
+        'msg': 'Quieres otros productos contactame'
+    }
+    return render(request, 'store/contact.html', context)
+
+def detail(request, pk):
+    item = get_object_or_404(Item, pk=pk)
+    print("Item ", item)
+    related_items = Item.objects.filter(Category=item.Category, is_sold=False).exclude(pk=pk)[0:3]
+
+    context = {
+        'item': item,
+        'related_items': related_items
+    }
+    return render(request, 'store/item.html', context)
+```
 
 — Actualización  
 
 En nuestro caso nos funcionó para cosas necesarias como las siguientes:
 
-<img width="478" height="181" alt="image" src="https://github.com/user-attachments/assets/6c728c73-ef62-464f-9e1f-69d7e6d947f5" />
+```Python
+def home(request):
+    items = Item.objects.filter(is_sold=False)
+    categories = Category.objects.all()
+    context = {
+        'items': items,
+        'categories': categories
+    }
+    return render(request, 'store/home.html', context)
+```
 
+Ese código es la vista home() de Django y sirve para cargar la página principal de la tienda: obtiene de la base de datos todos los productos que no están vendidos y todas las categorías, mete esa información en un context y luego la envía al template home.html para mostrarla al usuario.
 
-Ese código es la vista home() de Django y sirve para cargar la página principal de la tienda: obtiene de la base de datos todos los productos que no están vendidos y todas las categorías, mete esa información en un contexto y luego la envía al template home.html para mostrarla al usuario.
+```Python
 
-<img width="456" height="105" alt="image" src="https://github.com/user-attachments/assets/58a6b4eb-77e6-459f-bc2f-ba81fb62a6f2" />
-
+def contact(request):
+    context = {
+        'msg': 'Quieres otros productos contactame'
+    }
+    return render(request, 'store/contact.html', context)
+```
 
 Ese código define la vista contact(), y su función es simplemente mostrar la página de contacto.
-Crea un contexto con un mensaje ('Quieres otros productos contactame!') y lo envía al template contact.html, para que ese texto se muestre allí cuando el usuario abra la página.
+Crea un contexto con un mensaje ('Quieres otros productos contactame') y lo envía al template contact.html, para que ese texto se muestre allí cuando el usuario abra la página.
 
-<img width="669" height="140" alt="image" src="https://github.com/user-attachments/assets/7f490e73-ccc7-4085-8408-fc5f6394f6d3" />
+```Python
 
-
+def detail(request, pk):
+    item = get_object_or_404(Item, pk=pk)
+    related_items = Item.objects.filter(Category=item.Category, is_sold=False).exclude(pk=pk)[:3]
+    context = {
+        'item': item,
+        'related_items': related_items
+    }
+    return render(request, 'store/item.html', context)
+```
 Esa vista detail() sirve para mostrar la página de detalle de un producto.
-Primero busca el producto con el pk dado (o muestra 404 si no existe). Luego obtiene hasta 3 productos relacionados que sean de la misma categoría y que no estén vendidos, excluyendo el actual. Finalmente envía al template item.html tanto el producto como sus relacionados para mostrarlos en la página.
+Primero busca el producto con el pk dado (o muestra 404 si no existe). Luego obtiene hasta 3 productos relacionados que sean de la misma categoría y que no estén vendidos, excluyendo el actual. Finalmente envía al template item.html 
+```python
+def register(request):
+    if request.method == 'POST':
+        form = SignupForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('login')
+    else:
+        form = SignupForm()
+    
+    context = {
+        'form': form
+    }
+    return render(request, 'store/signup.html', context)
+```
+Esa vista register() maneja el método de nuevos usuarios. Si el usuario envía el formulario (método POST), crea un SignupForm con los datos, lo valida y, si es correcto, guarda al nuevo usuario y redirige a la página de login. Si es una visita normal (GET), simplemente muestra un formulario vacío. Al final, siempre envía el formulario al template signup.html para mostrarlo en la página.
 
-<img width="462" height="267" alt="image" src="https://github.com/user-attachments/assets/83cf8e40-3ab4-45f6-b1d7-e286b27dae3c" />
+```Python
 
+def logout_user(request):
+    logout(request)
+    return redirect('home')
+```
+Esa vista logout_user() cierra la sesión del usuario. Llama a logout(request) para desconectarlo y luego lo redirige a la página principal (home).
 
-Esa vista register() maneja el registro de nuevos usuarios.
-Si el usuario envía el formulario (método POST), crea un SignupForm con los datos, lo valida y, si es correcto, guarda al nuevo usuario y redirige a la página de login.
-Si es una visita normal (GET), simplemente muestra un formulario vacío.
-Al final, siempre envía el formulario al template signup.html para mostrarlo en la página.
+```Python
 
-<img width="279" height="70" alt="image" src="https://github.com/user-attachments/assets/2eaa01e8-12a8-4783-a842-836a4129f936" />
-
-
-Esa vista logout_user() cierra la sesión del usuario.
-Llama a logout(request) para desconectarlo y luego lo redirige a la página principal (home).
-
-<img width="519" height="382" alt="image" src="https://github.com/user-attachments/assets/0054ffa7-ffd4-434f-8504-77abfe4771fb" />
-
-
+@login_required
+def add_item(request):
+    if request.method == 'POST':
+        form = NewItemForm(request.POST, request.FILES)
+        if form.is_valid():
+            item = form.save(commit=False)
+            item.created_by = request.user
+            item.save()
+            return redirect('detail', pk=item.id)
+    else:
+        form = NewItemForm()
+    
+    context = {
+        'form': form,
+        'title': 'New Item'
+    }
+    return render(request, 'store/form.html', context)
+```
 Esa vista add_item(), protegida con @login_required, permite que solo usuarios logueados puedan agregar productos.
 Si el usuario envía el formulario (POST), crea un NewItemForm, valida los datos, asigna el producto al usuario que lo creó (created_by), lo guarda y luego redirige a la página de detalle del nuevo item.
 Si es una visita normal (GET), muestra un formulario vacío.
