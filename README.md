@@ -427,7 +427,7 @@ class Item(models.Model):
 En nuestro proyecto tenemos dos modelos principales: Category e Item. El modelo Category guarda el nombre de cada categoría y Django organiza automáticamente estas categorías alfabéticamente gracias a la configuración interna del modelo. Por su parte, el modelo Item representa los artículos o productos, incluyendo datos como el nombre, una descripción opcional, el precio, la posibilidad de subir una imagen, si ya fue vendido y la fecha de creación, que Django registra automáticamente, además, Item utiliza llaves foráneas para relacionarse con otros modelos: la primera, category, conecta cada artículo con su categoría; la segunda, created_by, relaciona cada artículo con el usuario que lo creó.
 Lo mejor de trabajar con Django es que solo necesitamos definir estas clases y sus campos, y luego el framework se encarga de crear las tablas reales en la base de datos usando los comandos makemigrations y migrate, lo que simplifica enormemente la gestión de la información sin necesidad de escribir SQL manualmente.
 
-```
+```python
 from django.contrib.auth.models import User
 from django.db import models
 
