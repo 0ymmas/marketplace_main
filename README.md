@@ -289,7 +289,7 @@ DATABASES = {
 ```
 
 En la actualización se agregó la parte de templates:Sirve para que podamos buscar y usar archivos HTML desde las aplicaciones o desde carpetas personalizadas.
-```
+```python
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -307,12 +307,12 @@ TEMPLATES = [
 ```
 
 En la actualización se agregó este código: Sirve para conectar a Django con servidores web 
-```
+```python
 WSGI_APPLICATION = 'marketplace_main.wsgi.application'
 ```
 
 En la actualización se agregó este código: Sirve para controlar a donde se manda al usuario al estar registrado, o cuando inicia o cierra sesión
-```
+```python
 ALLOWED_HOSTS = []
 LOGIN_URL = '/store/login/'
 LOGIN_REDIRECT_URL = '/'
