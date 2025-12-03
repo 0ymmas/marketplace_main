@@ -609,61 +609,46 @@ Este decorador se aplica sobre la vista **add_item** para asegurarse de que solo
 
 -**La Vista add_item**
 La función **add_item** es la vista encargada de manejar el proceso de agregar un nuevo artículo al sistema. Esta vista recibe un objeto **request**, que contiene la información de la solicitud HTTP realizada por el usuario.
-<img width="425" height="47" alt="image" src="https://github.com/user-attachments/assets/febba2c9-9e43-4524-9865-2e339eb5c9b5" />
 
-```
+```python 
 @login_required
 def add_item(request):
 ```
 -**Procesamiento del Formulario (Método POST)**
 Si la solicitud es POST, se crea una instancia del formulario NewItemForm usando los datos enviados en la solicitud (request.POST y request.FILES):
-<img width="423" height="24" alt="image" src="https://github.com/user-attachments/assets/b3e8142d-3dcb-4d60-8c32-2e4b3a580f0e" />
-<br>
-<img width="423" height="46" alt="image" src="https://github.com/user-attachments/assets/4705a25d-4dbb-49be-be5d-e37f306c59b6" />
-
-```
+```python 
 if request.method == 'POST':
         form = NewItemForm(request.POST, request.FILES)
 ```
 Después, se valida el formulario con form.is_valid(). Si el formulario es válido, significa que los datos proporcionados cumplen con los requisitos del formulario.
-<img width="222" height="25" alt="image" src="https://github.com/user-attachments/assets/64dcb18c-213c-4990-9032-aaf1f85f0be6" />
-<br>
-<img width="480" height="82" alt="image" src="https://github.com/user-attachments/assets/36b4d4ce-8a30-4843-a461-2a895fc5ba6b" />
-
-   ```
+```python
  if form.is_valid():
             item = form.save(commit=False)
             item.created_by = request.user
             item.save()
 ```
-
 El artículo se guarda en la base de datos, y se asocia al usuario que está autenticado (es decir, el que ha iniciado sesión). Esto se hace con:
-<img width="471" height="26" alt="image" src="https://github.com/user-attachments/assets/91ad01cd-7648-4a7a-a34a-d79d4f4225e0" />
-
-```
+```python
 item.created_by = request.user
 ```
 Una vez guardado el artículo, el usuario es redirigido a la página de detalles del artículo recién creado:
-<img width="483" height="24" alt="image" src="https://github.com/user-attachments/assets/9c5d1c17-f5cc-4a73-bd38-794c52659bfc" />
-
-```
+```python
     return redirect('detail', pk=item.id)
 ```
 -**Mostrar el Formulario (Método GET)**
 Si la solicitud no es POST, significa que el usuario está viendo el formulario para agregar un nuevo artículo. En este caso, se crea un formulario vacío y se prepara el contexto para mostrarlo en la plantilla:
-<img width="483" height="163" alt="image" src="https://github.com/user-attachments/assets/1f305300-8e9e-4009-b6e0-1d7264ca3d15" />
-
-```
+```python
  else:
         form = NewItemForm()
         context = {
             'form': form,
             'title': 'New Item'
         }
+```
 Finalmente, el formulario vacío se renderiza dentro de la plantilla store/form.html, y se pasa el contexto con el formulario y el título de la página:
+```python
   return render(request, 'store/form.html', context)
 ```
-<img width="480" height="55" alt="image" src="https://github.com/user-attachments/assets/94ec01fa-71c1-4266-bf85-b54fd80cd850" />
 
 ---
 
